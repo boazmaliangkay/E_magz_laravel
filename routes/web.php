@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'BlogController@index');
+// Route::get('/isi_post', function(){
+//     return view('magz.isi_post');
+// });
+
+Route::get('/isi_post/{slug}','BlogController@isi_blog')->name('magz.isi');
 
 Route::group(['middleware' => 'auth'],function(){
     Route::get('/home', 'HomeController@index')->name('home');
